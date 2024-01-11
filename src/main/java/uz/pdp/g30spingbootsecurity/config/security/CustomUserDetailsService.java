@@ -1,4 +1,4 @@
-package uz.pdp.g30spingbootsecurity.config;
+package uz.pdp.g30spingbootsecurity.config.security;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

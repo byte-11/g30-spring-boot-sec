@@ -1,4 +1,4 @@
-package uz.pdp.g30spingbootsecurity.config;
+package uz.pdp.g30spingbootsecurity.config.security;
 
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
