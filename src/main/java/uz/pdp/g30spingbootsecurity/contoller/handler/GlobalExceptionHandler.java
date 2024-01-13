@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({UsernameNotFoundException.class, RuntimeException.class})
-    public ResponseEntity<?> handleUsernameNotFoundException(UsernameNotFoundException ue, RuntimeException e) {
+    public ResponseEntity<?> handleUsernameNotFoundException(Exception e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND.value()).body(e.getMessage());
     }
 }

@@ -32,7 +32,7 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(registry ->
                         registry
-                                .requestMatchers("/api/v1/auth/**").permitAll()
+                                .requestMatchers("/api/1.0.0/auth/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .authenticationProvider(authProvider())

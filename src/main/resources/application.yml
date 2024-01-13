@@ -14,3 +14,6 @@ jwt:
     secret:
       expiry-mills: 600000
       key: SnZUTgGz6u+8PL2auyKJEScKO4XxfPLIvd0WIHrdpLItlVWFQgwWeyzWcgpKMamLWQLF7IsgAPgBqT0Z1otp8Q==
+
+api:
+  version: 1.0.0

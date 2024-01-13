@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.DeserializationException;
 import io.jsonwebtoken.io.Deserializer;
+import io.jsonwebtoken.io.Serializer;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -42,10 +43,15 @@ public class JwtTokenProvider {
         return Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    public boolean isValid(String token){
-        Claims claims = parseAllClaims(token);
-        Date expiryDate = extractExpiryDate(claims);
-        return expiryDate.after(new Date());
+    public boolean isValid(String token) {
+        try {
+            Claims claims = parseAllClaims(token);
+            Date expiryDate = extractExpiryDate(claims);
+            return expiryDate.after(new Date());
+        } catch (Exception e) {
+            return false;
+        }
+
     }
 
     public Claims parseAllClaims(String token) {
@@ -56,7 +62,7 @@ public class JwtTokenProvider {
                 .getPayload();
     }
 
-    private Date extractExpiryDate(Claims claims){
+    private Date extractExpiryDate(Claims claims) {
         return claims.getExpiration();
     }
 }
